@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mission: Be My Girlfriend ❤️</title>
+<title>Mission Girlfriend ❤️</title>
 
 <style>
 
@@ -21,12 +21,11 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    transition:1s;
 }
 
 .container{
     width:90%;
-    max-width:750px;
+    max-width:850px;
     background:rgba(255,255,255,0.92);
     backdrop-filter:blur(10px);
     border-radius:30px;
@@ -37,9 +36,18 @@ body{
     overflow:hidden;
 }
 
+.page{
+    display:none;
+    animation:fade 0.7s;
+}
+
+.active{
+    display:block;
+}
+
 h1{
     color:#ff4f81;
-    font-size:50px;
+    font-size:48px;
     margin-bottom:20px;
 }
 
@@ -56,56 +64,17 @@ p{
     border-radius:50px;
     cursor:pointer;
     font-size:20px;
-    transition:0.3s;
     margin:10px;
+    transition:0.3s;
 }
 
-.start-btn,
-.yes-btn{
+.btn:hover{
+    transform:scale(1.08);
+}
+
+.main-btn{
     background:#ff4f81;
     color:white;
-}
-
-.start-btn:hover,
-.yes-btn:hover{
-    transform:scale(1.1);
-}
-
-.no-btn{
-    background:#e0e0e0;
-    position:absolute;
-}
-
-.cat{
-    width:200px;
-    border-radius:20px;
-    margin-bottom:20px;
-}
-
-.hidden{
-    display:none;
-}
-
-.hearts{
-    position:absolute;
-    color:white;
-    animation:floatUp linear infinite;
-}
-
-.progress-bar{
-    width:100%;
-    height:15px;
-    background:#ffd6e7;
-    border-radius:50px;
-    overflow:hidden;
-    margin-bottom:30px;
-}
-
-.progress{
-    width:0%;
-    height:100%;
-    background:#ff4f81;
-    transition:0.5s;
 }
 
 .choice-btn{
@@ -119,6 +88,39 @@ p{
     color:white;
 }
 
+.no-btn{
+    position:absolute;
+    background:#ddd;
+}
+
+.progress-bar{
+    width:100%;
+    height:15px;
+    background:#ffd6e7;
+    border-radius:50px;
+    overflow:hidden;
+    margin-bottom:30px;
+}
+
+.progress{
+    height:100%;
+    width:0%;
+    background:#ff4f81;
+    transition:0.5s;
+}
+
+.cat{
+    width:220px;
+    border-radius:20px;
+    margin-bottom:20px;
+}
+
+.hearts{
+    position:absolute;
+    color:white;
+    animation:floatUp linear infinite;
+}
+
 @keyframes floatUp{
     from{
         transform:translateY(100vh);
@@ -127,6 +129,17 @@ p{
     to{
         transform:translateY(-10vh);
         opacity:0;
+    }
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 }
 
@@ -149,136 +162,231 @@ p{
 
 <div class="container">
 
-    <div class="progress-bar">
-        <div class="progress" id="progress"></div>
-    </div>
+<div class="progress-bar">
+    <div class="progress" id="progress"></div>
+</div>
 
-    <!-- PAGE 1 -->
-    <div id="page1">
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
 
-        <img 
-        class="cat"
-        src="https://media.tenor.com/8m6Yv8wYx7AAAAAC/cat-love.gif"
-        >
 
-        <h1>WELCOME ❤️</h1>
+    <h1>HELLO BUDAK BUSYUK ❤️</h1>
 
-        <p>
-            You have been selected for a very important mission 😳
-        </p>
+    <p>
+        Thank Youu 🎉
+    </p>
 
-        <p>
-            Mission difficulty: IMPOSSIBLE
-        </p>
+    <p>
+        Dah Berjaya Masuk Website Ni <3
+    </p>
 
-        <p>
-            Reward: unlimited love and annoying me forever 💖
-        </p>
+    <p>
+        I made this special for you onlyy !!
+    </p>
 
-        <button class="btn start-btn" onclick="nextPage(2)">
-            Start Mission 🚀
+    <button class="btn main-btn" onclick="nextPage(2)">
+        Continue 🚀
+    </button>
+
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+
+    <h1>IMPORTANT QUESTION 🤨</h1>
+
+    <p>
+        Before we continue...
+    </p>
+
+    <p>
+        Who is the cutest person alive?
+    </p>
+
+    <button class="btn choice-btn" onclick="correct()">
+        Nurul Ain Alya 😳
+    </button>
+
+    <button class="btn choice-btn" onclick="wrong()">
+        Irfan Izaniey 🗿
+    </button>
+
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+
+    <img class="cat"
+    src="https://media.tenor.com/bCfpwMjfAi0AAAAC/cat-cute.gif">
+
+    <h1>ANALYZING RESULTS 🧠</h1>
+
+    <p>
+        Calculating...
+    </p>
+
+    <p>
+        Looking through 14 million possibilities...
+    </p>
+
+    <p>
+        Final result:
+    </p>
+
+    <h1 style="font-size:38px;">
+        Betul !!! . Awak orang paling comel , cantikk , imutt dan pandai yang pernah saya kenal dekat duniaaa niii hehehe 💖
+    </h1>
+
+    <button class="btn main-btn" onclick="nextPage(4)">
+        Next 😌
+    </button>
+
+</div>
+
+<!-- PAGE 4 -->
+<div class="page" id="page4">
+
+    <h1>CONFESSION TIME 😭</h1>
+
+    <p>
+        Okay okay...
+    </p>
+
+    <p>
+        Saya perlu mengaku something.
+    </p>
+
+    <p>
+        Setiap kali saya chat dan call awak,
+        Saya orang paling excited tunggu awak dan paling excited nak borak dengan awak.
+    </p>
+
+    <p>
+        Setiap masa saya tunggu awak . 
+    </p>
+
+    <button class="btn main-btn" onclick="nextPage(5)">
+        Continue 💌
+    </button>
+
+</div>
+
+<!-- PAGE 5 -->
+<div class="page" id="page5">
+
+    <h1>MORE FACTS 📋</h1>
+
+    <p>
+        Selepas seminggu kita contact balik saya dapat
+        ketenangan dengan awak , dapat teman borak , 
+        tempat saya meluah , teman kacip saya , dan 
+        saya rasa macam you make me feel alive back .
+        saya tau sebelum ni saya dah buad silap paling 
+        besar dalam hidup . saya taknak sia-sia kan masa 
+        awak dan tenaga awak . saya harap awak pun rasa yang
+        sama dengan saya . sejujurnya , saya malu dengan awak
+        and the same time saya excited dapat contact balik dengan
+        awak . it feels like just a dream . maybe awak cakap kalau
+        kita sama ii awak takkan sama macam dulu . tapi inshaallah
+        saya akan usaha untuk happykan awak and inshaallah saya akan 
+        usaha untuk dapatkan rasa sayang awak yang dulu tu ada balik .
+        saya berharap sangat awak bagi saya peluang untuk cuba take a
+        chance to get your heart . i will try my best to make you
+        happy baobei.
+    </p>
+
+    <button class="btn main-btn" onclick="nextPage(6)">
+        Continue 😭
+    </button>
+
+</div>
+
+<!-- PAGE 6 -->
+<div class="page" id="page6">
+
+    <img class="cat"
+    src="https://media.tenor.com/6ZL8b5uYj1MAAAAC/cute-cat.gif">
+
+    <h1>FINAL DECISION ❤️</h1>
+
+    <p>
+        After all the investigation...
+    </p>
+
+    <p>
+        I have concluded that:
+    </p>
+
+    <h1 style="font-size:40px;">
+        I really like you.
+    </h1>
+
+    <p>
+        So now I have one last question...
+    </p>
+
+    <button class="btn main-btn" onclick="nextPage(7)">
+        Reveal Question 👀
+    </button>
+
+</div>
+
+<!-- PAGE 7 -->
+<div class="page" id="page7">
+
+    <h1>Will You Be My Girlfriend? ❤️</h1>
+
+    <p>
+        Please answer carefully.
+    </p>
+
+    <p>
+        This decision may affect my happiness levels 📈😭
+    </p>
+
+    <div style="height:150px; position:relative; margin-top:20px;">
+
+        <button class="btn main-btn"
+        onclick="accepted()">
+            YESSS 💖
         </button>
 
-    </div>
-
-    <!-- PAGE 2 -->
-    <div id="page2" class="hidden">
-
-        <h1>QUESTION 1 🤨</h1>
-
-        <p>
-            Who is the cutest person here?
-        </p>
-
-        <button class="btn choice-btn" onclick="correctAnswer()">
-            You 😳
+        <button class="btn no-btn"
+        id="noBtn"
+        onmouseover="moveNoButton()"
+        onclick="moveNoButton()">
+            No 😭
         </button>
-
-        <button class="btn choice-btn" onclick="wrongAnswer()">
-            Not you 🙄
-        </button>
-
-    </div>
-
-    <!-- PAGE 3 -->
-    <div id="page3" class="hidden">
-
-        <img 
-        class="cat"
-        src="https://media.tenor.com/bCfpwMjfAi0AAAAC/cat-cute.gif"
-        >
-
-        <h1>FINAL QUESTION ❤️</h1>
-
-        <p>
-            After careful investigation...
-        </p>
-
-        <p>
-            I have discovered that I really REALLY like you 😭
-        </p>
-
-        <p>
-            Sooooo...
-        </p>
-
-        <h1 style="font-size:40px;">
-            Will You Be My Girlfriend?
-        </h1>
-
-        <div style="height:120px;position:relative;margin-top:20px;">
-
-            <button class="btn yes-btn" onclick="accepted()">
-                YESSS 💖
-            </button>
-
-            <button 
-            class="btn no-btn"
-            id="noBtn"
-            onmouseover="moveNoButton()"
-            onclick="moveNoButton()">
-                No 😭
-            </button>
-
-        </div>
 
     </div>
 
 </div>
 
-<script>
+</div>
 
-function updateProgress(value){
-    document.getElementById("progress").style.width = value + "%";
-}
+<script>
 
 function nextPage(page){
 
-    document.querySelectorAll(".container > div").forEach(div => {
-        if(div.id !== "progress"){
-            div.classList.add("hidden");
-        }
+    document.querySelectorAll(".page").forEach(p => {
+        p.classList.remove("active");
     });
 
-    document.getElementById("page" + page).classList.remove("hidden");
+    document.getElementById("page" + page).classList.add("active");
 
-    if(page == 2){
-        updateProgress(50);
-    }
+    let progress = (page - 1) * 16;
 
-    if(page == 3){
-        updateProgress(100);
-    }
+    document.getElementById("progress").style.width = progress + "%";
 }
 
-function correctAnswer(){
+function correct(){
 
-    alert("Correct answer 😎💖");
+    alert("Correct answer 😌💖");
 
     nextPage(3);
 }
 
-function wrongAnswer(){
+function wrong(){
 
     const container = document.querySelector(".container");
 
@@ -288,18 +396,18 @@ function wrongAnswer(){
         container.classList.remove("shake");
     },300);
 
-    alert("WRONG ANSWER 😤 try again");
+    alert("Wrong answer 🚨 Try again");
 }
 
 function moveNoButton(){
 
-    const button = document.getElementById("noBtn");
+    const btn = document.getElementById("noBtn");
 
-    const x = Math.random() * 450;
-    const y = Math.random() * 70;
+    const x = Math.random() * 500;
+    const y = Math.random() * 80;
 
-    button.style.left = x + "px";
-    button.style.top = y + "px";
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
 }
 
 function accepted(){
@@ -320,11 +428,10 @@ function accepted(){
         <img 
         src="https://media.tenor.com/WzS6lnq8JXAAAAAC/cat-heart.gif"
         style="
-        width:250px;
+        width:260px;
         border-radius:20px;
         margin-bottom:20px;
-        "
-        >
+        ">
 
         <h1 style="
         font-size:70px;
@@ -334,13 +441,17 @@ function accepted(){
         </h1>
 
         <p style="
-        font-size:28px;
-        color:white;
+        font-size:30px;
         margin-top:20px;
+        color:white;
+        line-height:1.7;
         ">
             Achievement Unlocked:
             <br>
-            Girlfriend Acquired 💖😭
+            GIRLFRIEND ACQUIRED 💖😭
+            <br><br>
+            Happiness level:
+            ∞
         </p>
 
     </div>
