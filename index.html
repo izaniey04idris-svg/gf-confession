@@ -15,23 +15,24 @@
 
     body{
       height:100vh;
+      overflow:hidden;
+      background: linear-gradient(135deg, #ffd6e7, #ffc0cb, #ff9eb5);
       display:flex;
       justify-content:center;
       align-items:center;
-      background: linear-gradient(135deg, #ffd6e7, #ffc0cb, #ff9eb5);
-      overflow:hidden;
     }
 
-    .container{
+    .page{
+      position:absolute;
       width:90%;
       max-width:700px;
-      background: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.88);
       backdrop-filter: blur(10px);
       padding:50px;
       border-radius:30px;
       text-align:center;
       box-shadow:0 10px 30px rgba(0,0,0,0.2);
-      animation: fadeIn 1.5s ease;
+      transition:1s;
     }
 
     h1{
@@ -72,6 +73,12 @@
       animation:bounce 2s infinite;
     }
 
+    #page2{
+      opacity:0;
+      pointer-events:none;
+      transform:scale(0.8);
+    }
+
     @keyframes pulse{
       0%{transform:scale(1);}
       50%{transform:scale(1.05);}
@@ -83,22 +90,10 @@
       50%{transform:translateY(-10px);}
     }
 
-    @keyframes fadeIn{
-      from{
-        opacity:0;
-        transform:translateY(30px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
-
     .floating-heart{
       position:absolute;
       color:white;
-      font-size:25px;
-      animation: floatUp linear infinite;
+      animation:floatUp linear infinite;
       opacity:0.7;
     }
 
@@ -115,31 +110,25 @@
 
 <body>
 
-  <div class="container">
-    <h1>Will You Be My Girlfriend? ❤️</h1>
+  <!-- PAGE 1 -->
+  <div class="page" id="page1">
+    <h1>Hey You ❤️</h1>
 
     <p>
-      From the moment I met you, everything started to feel different 
-      in the best way possible.
+      There’s something I’ve been wanting to tell you for a long time...
     </p>
 
     <p>
-      You make me smile without trying, and somehow every moment with you 
-      becomes special.
+      Every time I talk to you, my day becomes better.
+      Every moment with you feels special to me.
     </p>
 
     <p>
-      I keep thinking about you every single day — your smile, your laugh, 
-      and the way you make my heart feel happy and calm.
+      And honestly... you’ve become someone very important in my life.
     </p>
 
-    <p>
-      So today, I just want to be honest with my feelings...
-      I really like you, and I want to ask...
-    </p>
-
-    <button class="btn" onclick="showMessage()">
-      Will You Be Mine? 💌
+    <button class="btn" onclick="nextPage()">
+      Continue 💌
     </button>
 
     <div class="hearts">
@@ -147,20 +136,56 @@
     </div>
   </div>
 
+  <!-- PAGE 2 -->
+  <div class="page" id="page2">
+    <h1>Will You Be My Girlfriend? ❤️</h1>
+
+    <p>
+      I really like you more than words can explain.
+    </p>
+
+    <p>
+      Your smile, your laugh, and the way you make me feel happy
+      means so much to me.
+    </p>
+
+    <p>
+      So today, I just want to ask honestly...
+    </p>
+
+    <button class="btn" onclick="loveMessage()">
+      Yes 💖
+    </button>
+
+    <div class="hearts">
+      💕 🌹 💕
+    </div>
+  </div>
+
   <script>
-    function showMessage() {
-      alert("Yay ❤️ You just made me the happiest person!");
+    function nextPage(){
+      document.getElementById("page1").style.opacity = "0";
+      document.getElementById("page1").style.pointerEvents = "none";
+      document.getElementById("page1").style.transform = "scale(0.8)";
+
+      document.getElementById("page2").style.opacity = "1";
+      document.getElementById("page2").style.pointerEvents = "all";
+      document.getElementById("page2").style.transform = "scale(1)";
     }
 
-    // Floating hearts animation
-    function createHeart() {
+    function loveMessage(){
+      alert("YAYYY ❤️ You just made me the happiest person alive!");
+    }
+
+    // Floating hearts
+    function createHeart(){
       const heart = document.createElement("div");
       heart.classList.add("floating-heart");
       heart.innerHTML = "❤️";
 
       heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
       heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
 
       document.body.appendChild(heart);
 
