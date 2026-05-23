@@ -15,17 +15,21 @@
 }
 
 body{
-    height:100vh;
-    overflow:hidden;
+    min-height:100vh;
+    overflow-y:auto;
+    overflow-x:hidden;
     background:linear-gradient(135deg,#ffd6e7,#ffc0cb,#ff9eb5);
     display:flex;
     justify-content:center;
     align-items:center;
+    padding:20px 0;
 }
 
 .container{
     width:90%;
     max-width:850px;
+    max-height:95vh;
+    overflow-y:auto;
     background:rgba(255,255,255,0.92);
     backdrop-filter:blur(10px);
     border-radius:30px;
@@ -33,7 +37,6 @@ body{
     text-align:center;
     box-shadow:0 10px 30px rgba(0,0,0,0.2);
     position:relative;
-    overflow:hidden;
 }
 
 .page{
@@ -116,9 +119,11 @@ p{
 }
 
 .hearts{
-    position:absolute;
+    position:fixed;
     color:white;
     animation:floatUp linear infinite;
+    pointer-events:none;
+    z-index:999;
 }
 
 @keyframes floatUp{
@@ -153,6 +158,36 @@ p{
 
 .shake{
     animation:shake 0.3s;
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+
+    .container{
+        width:95%;
+        padding:30px 20px;
+        border-radius:20px;
+    }
+
+    h1{
+        font-size:34px;
+    }
+
+    p{
+        font-size:18px;
+        line-height:1.7;
+    }
+
+    .btn{
+        width:100%;
+        font-size:18px;
+        padding:14px 20px;
+    }
+
+    .cat{
+        width:180px;
+    }
+
 }
 
 </style>
@@ -375,6 +410,11 @@ function nextPage(page){
     let progress = (page - 1) * 16;
 
     document.getElementById("progress").style.width = progress + "%";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
 function correct(){
@@ -401,7 +441,7 @@ function moveNoButton(){
 
     const btn = document.getElementById("noBtn");
 
-    const x = Math.random() * 500;
+    const x = Math.random() * 200;
     const y = Math.random() * 80;
 
     btn.style.left = x + "px";
@@ -421,12 +461,14 @@ function accepted(){
     flex-direction:column;
     text-align:center;
     color:white;
+    padding:20px;
     ">
 
         <img 
         src="https://media.tenor.com/WzS6lnq8JXAAAAAC/cat-heart.gif"
         style="
         width:260px;
+        max-width:90%;
         border-radius:20px;
         margin-bottom:20px;
         ">
