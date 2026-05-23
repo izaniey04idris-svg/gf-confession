@@ -1,280 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>For Someone Special ❤️</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confession ❤️</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
-
-body{
-    height:100vh;
-    overflow:hidden;
-    background:black;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:white;
-}
-
-/* Hacker Background */
-.matrix{
-    position:fixed;
-    width:100%;
-    height:100%;
-    z-index:-1;
-    overflow:hidden;
-}
-
-.matrix span{
-    position:absolute;
-    top:-100px;
-    color:#ff4da6;
-    font-size:20px;
-    animation:fall linear infinite;
-    opacity:0.7;
-}
-
-@keyframes fall{
-    to{
-        transform:translateY(120vh);
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
     }
-}
 
-.card{
-    width:340px;
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.2);
-    backdrop-filter:blur(10px);
-    border-radius:25px;
-    padding:30px;
-    text-align:center;
-    animation:fade 1s ease;
-}
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background: linear-gradient(135deg, #ffd6e7, #ffc0cb, #ff9eb5);
+      overflow:hidden;
+    }
 
-@keyframes fade{
-    from{
+    .container{
+      width:90%;
+      max-width:700px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(10px);
+      padding:50px;
+      border-radius:30px;
+      text-align:center;
+      box-shadow:0 10px 30px rgba(0,0,0,0.2);
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1{
+      font-size:50px;
+      color:#ff4f81;
+      margin-bottom:25px;
+      animation:pulse 2s infinite;
+    }
+
+    p{
+      font-size:20px;
+      color:#555;
+      line-height:1.8;
+      margin-bottom:20px;
+    }
+
+    .btn{
+      margin-top:20px;
+      padding:15px 35px;
+      border:none;
+      border-radius:50px;
+      background:#ff4f81;
+      color:white;
+      font-size:20px;
+      cursor:pointer;
+      transition:0.3s;
+      box-shadow:0 5px 15px rgba(255,79,129,0.4);
+    }
+
+    .btn:hover{
+      transform:scale(1.08);
+      background:#ff2f6d;
+    }
+
+    .hearts{
+      font-size:55px;
+      margin-top:35px;
+      animation:bounce 2s infinite;
+    }
+
+    @keyframes pulse{
+      0%{transform:scale(1);}
+      50%{transform:scale(1.05);}
+      100%{transform:scale(1);}
+    }
+
+    @keyframes bounce{
+      0%,100%{transform:translateY(0);}
+      50%{transform:translateY(-10px);}
+    }
+
+    @keyframes fadeIn{
+      from{
         opacity:0;
-        transform:translateY(20px);
-    }
-    to{
+        transform:translateY(30px);
+      }
+      to{
         opacity:1;
         transform:translateY(0);
+      }
     }
-}
 
-h1{
-    color:#ff66b3;
-    margin-bottom:15px;
-}
-
-p{
-    color:#ddd;
-    line-height:1.5;
-}
-
-.buttons{
-    margin-top:30px;
-    position:relative;
-    height:100px;
-}
-
-button{
-    border:none;
-    padding:14px 28px;
-    border-radius:50px;
-    font-size:17px;
-    cursor:pointer;
-    transition:0.2s;
-}
-
-#yes{
-    background:#ff4da6;
-    color:white;
-}
-
-#yes:hover{
-    transform:scale(1.1);
-}
-
-#no{
-    background:white;
-    color:black;
-    position:absolute;
-    left:190px;
-}
-
-.loading{
-    font-size:22px;
-    animation:blink 1s infinite;
-}
-
-@keyframes blink{
-    50%{
-        opacity:0.4;
+    .floating-heart{
+      position:absolute;
+      color:white;
+      font-size:25px;
+      animation: floatUp linear infinite;
+      opacity:0.7;
     }
-}
 
-.heart{
-    position:absolute;
-    color:#ff4da6;
-    animation:float 5s linear infinite;
-}
-
-@keyframes float{
-    from{
-        transform:translateY(100vh);
-        opacity:1;
+    @keyframes floatUp{
+      from{
+        transform:translateY(100vh) scale(0.5);
+      }
+      to{
+        transform:translateY(-10vh) scale(1.2);
+      }
     }
-    to{
-        transform:translateY(-100px);
-        opacity:0;
-    }
-}
-</style>
+  </style>
 </head>
 
 <body>
 
-<!-- Music -->
-<audio autoplay loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-</audio>
-
-<!-- Background -->
-<div class="matrix" id="matrix"></div>
-
-<div class="card" id="mainCard">
-    <h1>Hey You ❤️</h1>
+  <div class="container">
+    <h1>Will You Be My Girlfriend? ❤️</h1>
 
     <p>
-        Dari semua orang yang saya jumpa,<br>
-        awak yang paling buat saya rasa tenang.
+      From the moment I met you, everything started to feel different 
+      in the best way possible.
     </p>
 
-    <br>
+    <p>
+      You make me smile without trying, and somehow every moment with you 
+      becomes special.
+    </p>
 
-    <h2>Will You Be My Girlfriend?</h2>
+    <p>
+      I keep thinking about you every single day — your smile, your laugh, 
+      and the way you make my heart feel happy and calm.
+    </p>
 
-    <div class="buttons">
-        <button id="yes">Yes 💖</button>
-        <button id="no">No 😭</button>
+    <p>
+      So today, I just want to be honest with my feelings...
+      I really like you, and I want to ask...
+    </p>
+
+    <button class="btn" onclick="showMessage()">
+      Will You Be Mine? 💌
+    </button>
+
+    <div class="hearts">
+      🌸 💖 🌸
     </div>
-</div>
+  </div>
 
-<script>
-/* =========================
-   TELEGRAM BOT
-========================= */
-
-const BOT_TOKEN = "8934604283:AAFgKj55RIZXWIaePaO5UUFPb7iDQt7v38k";
-const CHAT_ID = "1383159300";
-
-async function sendTelegram(message){
-    try{
-        await fetch(https://api.telegram.org/bot${BOT_TOKEN}/sendMessage,{
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body:JSON.stringify({
-                chat_id: CHAT_ID,
-                text: message
-            })
-        });
-    }catch(err){
-        console.log(err);
+  <script>
+    function showMessage() {
+      alert("Yay ❤️ You just made me the happiest person!");
     }
-}
 
-/* =========================
-   MATRIX EFFECT
-========================= */
+    // Floating hearts animation
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("floating-heart");
+      heart.innerHTML = "❤️";
 
-const matrix = document.getElementById("matrix");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      heart.style.fontSize = (Math.random() * 20 + 15) + "px";
 
-for(let i=0;i<70;i++){
-    const span = document.createElement("span");
-    span.innerHTML = "01 ❤️";
-    span.style.left = Math.random()*100 + "vw";
-    span.style.animationDuration = (Math.random()*5+3) + "s";
-    span.style.fontSize = (Math.random()*20+10) + "px";
-    matrix.appendChild(span);
-}
+      document.body.appendChild(heart);
 
-/* =========================
-   BUTTONS
-========================= */
-
-const yesBtn = document.getElementById("yes");
-const noBtn = document.getElementById("no");
-
-/* NO BUTTON LARI */
-function moveButton(){
-    const x = Math.random()*200;
-    const y = Math.random()*70;
-
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-}
-
-noBtn.addEventListener("mouseover", moveButton);
-noBtn.addEventListener("touchstart", moveButton);
-
-/* YES BUTTON */
-yesBtn.addEventListener("click", async ()=>{
-
-    /* SEND TELEGRAM */
-    await sendTelegram("❤️ DIA TEKAN YES ❤️");
-
-    /* LOADING SCREEN */
-    document.body.innerHTML = `
-        <div class="loading">
-            Checking feelings...
-        </div>
-    `;
-
-    setTimeout(()=>{
-        document.body.innerHTML = `
-        <div style="text-align:center;">
-            <h1 style="font-size:55px;color:#ff66b3;">
-                SHE SAID YES ❤️
-            </h1>
-
-            <p style="font-size:24px;margin-top:15px;">
-                Officially together now 😭💖
-            </p>
-        </div>
-        `;
-
-        setInterval(createHeart,200);
-
-    },3000);
-});
-
-/* HEART EFFECT */
-function createHeart(){
-    const heart = document.createElement("div");
-
-    heart.classList.add("heart");
-    heart.innerHTML = "❤️";
-
-    heart.style.left = Math.random()*window.innerWidth + "px";
-    heart.style.fontSize = (Math.random()*20+20) + "px";
-
-    document.body.appendChild(heart);
-
-    setTimeout(()=>{
+      setTimeout(() => {
         heart.remove();
-    },5000);
-}
-</script>
+      }, 6000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
 
 </body>
 </html>
